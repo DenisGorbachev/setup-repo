@@ -1,6 +1,8 @@
 use crate::Outcome;
 use clap::{value_parser, Parser};
+use git2::Repository;
 use std::io::Write;
+use std::path::Path;
 use std::path::PathBuf;
 use url::Url;
 
@@ -21,15 +23,26 @@ pub struct CopyFromRepoCommand {
 
 impl CopyFromRepoCommand {
     pub async fn run(self, _stdout: &mut impl Write, _stderr: &mut impl Write) -> Outcome {
-        // let Self {
-        //     repo,
-        //     target,
-        //     paths
-        // } = self;
-        // AI ensure target is a directory
-        // AI let repo_dir = // create temporary directory using `tempfile`
-        // AI clone `repo` into `repo_dir`
-        // AI for file in files copy them into `target`
-        todo!()
+        let Self { repo, target, paths } = self;
+        
+        // Create target directory if it doesn't exist
+        std::fs::create_dir_all(&target)?;
+        
+        // Create temporary directory for cloning
+        let temp_dir = tempfile::tempdir()?;
+        
+        // Clone repository
+        Repository::clone(repo.as_str(), temp_dir.path())?;
+        
+        for path in paths {
+            let source = temp_dir.path().join(&path);
+            let dest = target.join(&path);
+            
+            if let Some(parent) = dest.parent() {
+                std::fs::create_dir_all(parent)?;
+            }
+            std::fs::copy(&source, &dest)?;
+        }
+        Ok(())
     }
 }
