@@ -2,6 +2,7 @@
 name = "setup-repo"
 version = "0.1.0"
 edition = "2021"
+description = "A personal repo setup script"
 license = "Apache-2.0 OR MIT"
 homepage = "https://github.com/DenisGorbachev/setup-repo"
 repository = "https://github.com/DenisGorbachev/setup-repo"
@@ -26,11 +27,7 @@ standard-traits = { git = "https://github.com/DenisGorbachev/standard-traits" }
 stub-macro = { version = "0.1.3" }
 subtype = { git = "https://github.com/DenisGorbachev/subtype" }
 tokio = { version = "1.39.2", features = ["macros", "fs", "net", "rt", "rt-multi-thread"] }
+url = { version = "2.5.4" }
 
 [package.metadata.cargo-machete]
-ignored = ["derive_more", "derive-getters", "derive-new", "fmt-derive", "stub-macro", "standard-traits", "helpful", "subtype"]
-
-
-
-
-
+ignored = ["derive_more", "derive-getters", "derive-new", "fmt-derive", "stub-macro", "standard-traits", "subtype"]

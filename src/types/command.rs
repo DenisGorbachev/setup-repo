@@ -5,7 +5,7 @@ use Command::*;
 
 #[derive(Parser, Clone, Debug)]
 pub enum Command {
-    Print(PrintCommand),
+    Print(CopyFromRepoCommand),
 }
 
 impl Command {
@@ -16,6 +16,6 @@ impl Command {
     }
 }
 
-mod print_command;
+mod copy_from_repo_command;
 
-pub use print_command::*;
+pub use copy_from_repo_command::*;
