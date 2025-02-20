@@ -2,7 +2,6 @@ use crate::Outcome;
 use clap::{value_parser, Parser};
 use git2::Repository;
 use std::io::Write;
-use std::path::Path;
 use std::path::PathBuf;
 use url::Url;
 
