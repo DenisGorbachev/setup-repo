@@ -1,5 +1,5 @@
 use clap::Parser;
-use rust_cli_app_template::{Cli, Outcome};
+use setup_repo::{Cli, Outcome};
 use std::io::{stderr, stdout};
 
 #[tokio::main]
