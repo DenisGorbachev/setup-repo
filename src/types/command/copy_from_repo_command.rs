@@ -30,6 +30,6 @@ impl CopyFromRepoCommand {
         // AI let repo_dir = // create temporary directory using `tempfile`
         // AI clone `repo` into `repo_dir`
         // AI for file in files copy them into `target`
-        Ok(())
+        todo!()
     }
 }

@@ -22,14 +22,14 @@ derive-getters = { version = "0.5.0", features = ["auto_copy_getters"] }
 derive-new = "0.7.0"
 derive_more = { version = "2.0.1", features = ["full"] }
 fmt-derive = "0.1.2"
+git2 = { version = "0.18", features = ["https"] }
 helpful = { git = "https://github.com/DenisGorbachev/helpful" }
 standard-traits = { git = "https://github.com/DenisGorbachev/standard-traits" }
 stub-macro = { version = "0.1.3" }
 subtype = { git = "https://github.com/DenisGorbachev/subtype" }
+tempfile = "3.10.1"
 tokio = { version = "1.39.2", features = ["macros", "fs", "net", "rt", "rt-multi-thread"] }
 url = { version = "2.5.4" }
-tempfile = "3.10"
-git2 = { version = "0.18", features = ["https"] }
 
 [package.metadata.cargo-machete]
 ignored = ["derive_more", "derive-getters", "derive-new", "fmt-derive", "stub-macro", "standard-traits", "subtype"]
